@@ -143,7 +143,7 @@ function( TmbData,
   on.exit(setwd(origwd),add=TRUE)
   setwd( CompileDir )
   if(.Platform$OS.type == "windows" )
-     TMB::compile( paste0(Version,".cpp"), flags = "-Wno-ignored-attributes" )  
+     TMB::compile( paste0(Version,".cpp"), flags = "-Wno-ignored-attributes -O2 -mfpmath=sse -msse2 -mstackrealign" )  
   else          
      TMB::compile( paste0(Version,".cpp"), CPPFLAGS="-Wno-ignored-attributes" )
 
